@@ -52,4 +52,39 @@ app.get('/api/notes',async (req,res)=>{
   })
 })
 
+
+
+app.patch('/api/notes/:id',async(req, res)=>{
+    let {id} =  req.params
+    let {description} =  req.body
+
+   
+     if (!description) {
+        return res.status(400).json({
+            error:" description is required"
+        })
+    }
+    if (description.trim().length <10) {
+    return res.status(404).json({
+      error:'description must be 10 char long'
+      
+    })
+  }
+
+       let notes  =  await NoteModel.findById(id)
+
+       if (!notes) {
+        return res.status(200).json({
+            message:"notes not exist",
+        })
+       }
+
+       notes.description =  description
+       await notes.save()
+       
+       return res.status(200).json({
+        message:"updated",
+        notes
+       })
+ })
 export default app
