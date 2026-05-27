@@ -1,0 +1,7 @@
+import  app from './src/app.js'
+import connectDb from './src/config/database.js';
+ await connectDb()
+app.listen(3000,()=>{
+    console.log('server start');
+    
+})
