@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let connectDB = async()=>{
     try {
-        await mongoose.connect('mongodb://localhost:27017/kodex')
+        await mongoose.connect('mongodb+srv://todo:todo12345@cluster0.pqscxrt.mongodb.net/')
         console.log('mongodb connected');
         
     } catch (error) {

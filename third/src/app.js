@@ -92,32 +92,6 @@ app.patch('/api/notes/:id',async(req, res)=>{
  //main task 
 
 
-//  app.delete('/api/notes/:id' ,async(req, res)=>{
-//         let {id} = req.params
-
-//         let deleteNote  = await NoteModel.findByIdAndDelete(id)
-
-   
-
-       
-
-
-//          if (!deleteNote) {
-//         return res.status(404).json({
-//             error: "not not exist"
-//         })
-
-//           return res.status(200).json({
-//         message: "Note deleted successfully",
-//         deleteNote
-//     })
-
-//     }
-
-
-        
-       
-//  })
 
 app.delete('/api/notes/:id', async (req, res) => {
     const { id } = req.params
