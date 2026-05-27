@@ -39,6 +39,17 @@ app.post('/api/notes',async (req,res)=>{
         newpost
     })
 
+
+
+})
+
+
+app.get('/api/notes',async (req,res)=>{
+  let fetchdata = await NoteModel.find()
+ return res.status(200).json({
+    message:"all notes fetched",
+    fetchdata
+  })
 })
 
 export default app
