@@ -1,5 +1,6 @@
 import express from  'express'
 import NotesModel from './models/notes.model.js'
+import { modelNames } from 'mongoose'
 
 let app  = express()
 app.use(express.json())
@@ -44,6 +45,15 @@ app.post('/api/notes',async(req, res)=>{
     NewNotes
  })
  
+})
+
+app.get('/api/notes',async (req,res)=>{
+        let newpost  =  await NotesModel.find()
+
+        return res.status(200).json({
+            message:"all notes fetched",
+            newpost
+        })
 })
 
 export default app
