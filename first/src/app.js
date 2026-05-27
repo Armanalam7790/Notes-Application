@@ -52,6 +52,19 @@ newnotes
 
 })
 
+/**
+ * @route  get /api/note
+ * @descriprion  fetch all notes
+ * @access public
+ */
+
+app.get('/api/notes',async(req, res)=>{
+    let notes  = await  NotesModel.find()
+    return  res.status(200).json({
+      message:"note fetched successfully",
+      notes
+    })
+})
 
 
 export default  app
